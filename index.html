@@ -11,65 +11,77 @@
   *{box-sizing:border-box;}
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;
     background:var(--bg);color:var(--text);line-height:1.45;font-size:14px;}
-  .wrap{max-width:1320px;margin:0 auto;padding:22px;}
+  .wrap{max-width:1180px;margin:0 auto;padding:22px;}
   header{border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:6px;}
   h1{font-size:22px;margin:0 0 3px 0;letter-spacing:-0.01em;}
   .sub{color:var(--muted);font-size:12px;}
   nav{position:sticky;top:0;background:rgba(11,13,16,.92);backdrop-filter:blur(6px);z-index:50;display:flex;flex-wrap:wrap;gap:6px;padding:10px 0;border-bottom:1px solid var(--line);margin-bottom:8px;}
   nav a{color:var(--muted);text-decoration:none;font-size:12px;font-weight:600;border:1px solid var(--line);border-radius:20px;padding:5px 12px;}
   nav a:hover{color:var(--accent);border-color:var(--accent);}
-  h2{font-size:12px;margin:34px 0 4px;text-transform:uppercase;letter-spacing:0.09em;color:var(--text);font-weight:700;}
+  h2{font-size:12px;margin:30px 0 4px;text-transform:uppercase;letter-spacing:0.09em;color:var(--text);font-weight:700;}
   h2 .badge{font-size:10px;color:var(--muted);font-weight:600;margin-left:8px;}
-  .secsub{color:var(--muted);font-size:12.5px;margin:0 0 14px;max-width:920px;}
-  .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:14px;}
-  /* spine rail */
-  .rail{display:flex;align-items:stretch;gap:0;overflow-x:auto;padding-bottom:6px;}
-  .stage{flex:1;min-width:124px;background:var(--panel-2);border:1px solid var(--line);border-radius:9px;padding:12px 11px;position:relative;}
-  .stage + .stage{margin-left:22px;}
-  .stage + .stage:before{content:"\203A";position:absolute;left:-16px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:20px;}
-  .stage .n{font-family:var(--mono);font-size:10px;color:var(--muted);}
-  .stage h4{margin:2px 0 5px;font-size:13px;}
-  .stage .d{font-size:11px;color:var(--muted);font-family:var(--mono);line-height:1.35;}
-  .stage.fe{border-top:3px solid var(--info);}
-  .stage.web{border-top:3px solid var(--pink);}
-  .stage.be{border-top:3px solid var(--accent);}
-  .pixel{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;border-radius:4px;padding:2px 6px;margin-top:7px;background:rgba(74,222,128,.16);color:var(--accent);}
-  /* matrix */
-  table{width:100%;border-collapse:collapse;font-size:12px;}
-  .mtx th,.mtx td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top;}
-  .mtx th{font-size:10px;text-transform:uppercase;letter-spacing:.04em;font-weight:700;position:sticky;top:46px;background:var(--panel);}
-  .mtx .lane1{color:var(--info);}.mtx .lane2{color:var(--warn);}.mtx .lane3{color:var(--purple);}.mtx .lane4{color:var(--pink);}
-  .mtx td.trans{font-weight:600;color:var(--text);font-family:var(--mono);font-size:11px;white-space:nowrap;border-right:1px solid var(--line);}
-  .mtx td.trans small{display:block;color:var(--muted);font-weight:400;margin-top:2px;}
-  .mtx tr:hover td{background:var(--panel-2);}
-  .mtx ul{margin:0;padding-left:14px;}.mtx li{margin-bottom:3px;color:var(--text);}
-  .dash{color:var(--muted);}
-  .legend{display:flex;flex-wrap:wrap;gap:14px;margin:0 0 12px;font-size:11.5px;}
+  .secsub{color:var(--muted);font-size:12.5px;margin:0 0 16px;max-width:900px;}
+
+  /* ===== FUNNEL DIAGRAM ===== */
+  .legend{display:flex;flex-wrap:wrap;gap:16px;margin:0 auto 18px;max-width:760px;font-size:11.5px;justify-content:center;}
   .legend span{display:flex;align-items:center;gap:6px;color:var(--muted);}
-  .dot{width:9px;height:9px;border-radius:2px;display:inline-block;}
-  /* journey */
+  .dot{width:10px;height:10px;border-radius:3px;display:inline-block;}
+  .fdiagram{max-width:760px;margin:0 auto;}
+  .fstep{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--info);border-radius:12px;padding:14px 18px;}
+  .fstep.web{border-left-color:var(--pink);}
+  .fstep.be{border-left-color:var(--accent);}
+  .fstep .top{display:flex;justify-content:space-between;align-items:baseline;}
+  .fstep .stepno{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.05em;}
+  .fstep h3{margin:3px 0 2px;font-size:17px;letter-spacing:-.01em;}
+  .fstep .desc{font-size:12px;color:var(--muted);}
+  .fvol{margin-top:11px;}
+  .fvol .track{height:11px;background:var(--panel-2);border-radius:6px;overflow:hidden;}
+  .fvol .fill{height:100%;border-radius:6px;background:var(--info);}
+  .fill.pink{background:var(--pink);}.fill.green{background:var(--accent);}.fill.mut{background:#3a434f;}
+  .fvol .lbl{display:flex;justify-content:space-between;align-items:baseline;margin-top:5px;font-family:var(--mono);font-size:11px;color:var(--muted);}
+  .fvol .lbl b{color:var(--text);font-size:14px;}
+  .fork{display:flex;gap:10px;margin-top:11px;flex-wrap:wrap;}
+  .forkpill{flex:1;min-width:200px;border:1px solid var(--line);border-radius:8px;padding:9px 12px;font-size:12px;}
+  .forkpill.q{border-left:3px solid var(--accent);}
+  .forkpill.nq{border-left:3px solid var(--muted);}
+  .forkpill b{font-size:12.5px;}
+  .forkpill .u{font-family:var(--mono);font-size:11px;color:var(--info);}
+  .pxon{color:var(--accent);font-weight:700;font-family:var(--mono);font-size:10.5px;}
+  .pxoff{color:var(--muted);font-weight:700;font-family:var(--mono);font-size:10.5px;}
+
+  /* connector with workflow block */
+  .connector{display:flex;flex-direction:column;align-items:center;}
+  .vline{width:2px;height:13px;background:var(--line);}
+  .chev{width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-top:9px solid var(--muted);}
+  .wfcard{width:90%;background:var(--panel-2);border:1px dashed #33404e;border-radius:11px;padding:10px 14px;margin:1px 0;}
+  .wfcard .wt{font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:7px;}
+  .lane{display:flex;gap:9px;align-items:flex-start;margin-bottom:5px;}
+  .lane:last-child{margin-bottom:0;}
+  .lane .bar{flex:0 0 4px;align-self:stretch;border-radius:2px;}
+  .lane .ab{flex:0 0 16px;font-family:var(--mono);font-weight:700;font-size:10px;padding-top:1px;}
+  .lane .tx{font-size:11.5px;color:var(--text);}
+  .l1 .bar,.l1 .ab{background:var(--info);}.l1 .ab{background:none;color:var(--info);}
+  .l2 .bar{background:var(--warn);}.l2 .ab{color:var(--warn);}
+  .l3 .bar{background:var(--purple);}.l3 .ab{color:var(--purple);}
+  .l4 .bar{background:var(--pink);}.l4 .ab{color:var(--pink);}
+
+  /* journey + ladder (supporting) */
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:14px;}
   .journey{display:grid;grid-template-columns:155px 1fr 1fr;}
   .jc{border-bottom:1px solid var(--line);padding:11px 14px;}
-  .jstep{font-weight:600;font-size:13px;}
-  .jstep small{display:block;color:var(--muted);font-weight:400;font-size:11px;font-family:var(--mono);margin-top:2px;}
-  .jsee{font-size:12.5px;}
-  .jjob{font-size:12px;color:var(--muted);}
+  .jstep{font-weight:600;font-size:13px;}.jstep small{display:block;color:var(--muted);font-weight:400;font-size:11px;font-family:var(--mono);margin-top:2px;}
+  .jsee{font-size:12.5px;}.jjob{font-size:12px;color:var(--muted);}
   .jhead{font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:700;border-bottom:1px solid var(--line);padding:8px 14px;background:var(--panel-2);}
-  .emailcol{columns:2;column-gap:26px;font-size:12px;}
-  .emailcol .e{break-inside:avoid;margin-bottom:7px;}
-  .emailcol .e b{color:var(--text);}.emailcol .e span{color:var(--muted);}
-  /* ladder */
+  .emailcol{columns:2;column-gap:26px;font-size:12px;}.emailcol .e{break-inside:avoid;margin-bottom:7px;}.emailcol .e b{color:var(--text);}.emailcol .e span{color:var(--muted);}
   .ladder{display:flex;flex-direction:column-reverse;gap:5px;}
   .rung{display:grid;grid-template-columns:130px 1fr 1fr;gap:14px;align-items:center;background:var(--panel-2);border:1px solid var(--line);border-radius:8px;padding:11px 14px;}
-  .rung .aw{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;}
-  .rung .believe{font-size:12.5px;}.rung .touch{font-size:11.5px;color:var(--muted);}
+  .rung .aw{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;}.rung .believe{font-size:12.5px;}.rung .touch{font-size:11.5px;color:var(--muted);}
   .r0 .aw{color:var(--bad);}.r1 .aw{color:var(--warn);}.r2 .aw{color:var(--info);}.r3 .aw{color:var(--purple);}.r4 .aw{color:var(--accent);}
   .split-wrap{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;}
   .split-card{flex:1;min-width:240px;border:1px solid var(--line);border-radius:9px;padding:13px 15px;}
   .split-card.q{border-left:3px solid var(--accent);}.split-card.nq{border-left:3px solid var(--muted);}
   .split-card h4{margin:0 0 6px;font-size:13px;}
   ul{margin:6px 0;padding-left:18px;}li{margin-bottom:4px;}
-  .note{font-size:11.5px;color:var(--muted);margin-top:10px;}
   .foot{color:var(--muted);font-size:11.5px;border-top:1px solid var(--line);margin-top:30px;padding-top:12px;}
 </style>
 </head>
@@ -77,212 +89,265 @@
 <div class="wrap">
   <header>
     <h1>Webinar Master Map</h1>
-    <div class="sub">UGC World · Gloria Stonelake · the funnel spine + the automation layer that runs between every single step. Numbers = May 20 2026 (manual report, ~80-90% confidence).</div>
+    <div class="sub">UGC World · Gloria Stonelake · the funnel, top to bottom, with the workflow that fires in every gap. Numbers = May 20 2026 (manual report, ~80-90% confidence).</div>
   </header>
   <nav>
-    <a href="#spine">Funnel spine</a>
-    <a href="#auto">Automation layer</a>
+    <a href="#diagram">Funnel diagram</a>
     <a href="#journey">What they see</a>
     <a href="#ladder">The ladder</a>
   </nav>
 
-  <!-- ===== SPINE ===== -->
-  <h2 id="spine">1 · The funnel spine <span class="badge">9 steps, traffic to signed contract</span></h2>
-  <p class="secsub">Blue = front end · pink = the live event · green = back end. The bonus page is one experience served at two URLs: the qualified version fires the Meta pixel, the unqualified one does not.</p>
-  <div class="panel">
-    <div class="rail">
-      <div class="stage fe"><div class="n">01</div><h4>Cold ad / Organic</h4><div class="d">Meta ABO cold + organic content</div></div>
-      <div class="stage fe"><div class="n">02</div><h4>Opt-in</h4><div class="d">webinar registration page · name/email/phone</div></div>
-      <div class="stage fe"><div class="n">03</div><h4>Confirmation (TY VSL)</h4><div class="d">thank-you page w/ VSL → scroll to free bonuses → Typeform (DQ)</div></div>
-      <div class="stage fe"><div class="n">04</div><h4>Bonus page</h4><div class="d">qualified + unqualified = same page</div><span class="pixel">pixel fires on qualified only</span></div>
-      <div class="stage web"><div class="n">05</div><h4>Live webinar</h4><div class="d">Zoom masterclass · Gloria · ~2.5 hr</div></div>
-      <div class="stage be"><div class="n">06</div><h4>App / Booking</h4><div class="d">applies + books a call from the pitch</div></div>
-      <div class="stage be"><div class="n">07</div><h4>Show</h4><div class="d">shows to the call (triage + closer)</div></div>
-      <div class="stage be"><div class="n">08</div><h4>Close</h4><div class="d">verbal yes on the offer</div></div>
-      <div class="stage be"><div class="n">09</div><h4>Sign contract</h4><div class="d">agreement + payment, PIF or plan</div></div>
-    </div>
+  <h2 id="diagram">The funnel <span class="badge">node → workflow → node, traffic to signed contract</span></h2>
+  <p class="secsub">Read top to bottom. The dashed blocks between steps are the automations firing in that gap. Lane colors:</p>
+  <div class="legend">
+    <span><i class="dot" style="background:var(--info)"></i> T · Tags / tracking</span>
+    <span><i class="dot" style="background:var(--warn)"></i> S · Setter motion</span>
+    <span><i class="dot" style="background:var(--purple)"></i> M · SMS / email</span>
+    <span><i class="dot" style="background:var(--pink)"></i> R · Retargeting</span>
   </div>
 
-  <!-- ===== AUTOMATION LAYER ===== -->
-  <h2 id="auto">2 · The automation layer <span class="badge">what runs in the gap between every step</span></h2>
-  <p class="secsub">This is the connective tissue. Each row is a transition between two funnel steps; each column is one of the four motions firing in that gap. This is where leads get tagged, nurtured, reminded, chased, and re-targeted.</p>
-  <div class="legend">
-    <span><i class="dot" style="background:var(--info)"></i> 1 · Tags + segmentation + tracking</span>
-    <span><i class="dot" style="background:var(--warn)"></i> 2 · Setter motions</span>
-    <span><i class="dot" style="background:var(--purple)"></i> 3 · Automated SMS / email</span>
-    <span><i class="dot" style="background:var(--pink)"></i> 4 · Retargeting ads</span>
+  <div class="fdiagram">
+
+    <!-- 01 -->
+    <div class="fstep">
+      <div class="top"><span class="stepno">STEP 01 · TRAFFIC</span></div>
+      <h3>Cold ad &nbsp;/&nbsp; Organic</h3>
+      <div class="desc">Meta ABO cold creative + organic content</div>
+      <div class="fvol"><div class="track"><div class="fill mut" style="width:100%"></div></div>
+        <div class="lbl"><span>spend + reach</span><b>$2,548 paid</b></div></div>
+    </div>
+    <div class="connector">
+      <div class="vline"></div><div class="chev"></div>
+      <div class="wfcard"><div class="wt">workflow in this gap</div>
+        <div class="lane l1"><span class="bar"></span><span class="ab">T</span><span class="tx">Pixel PageView · JS snippet grabs UTM + fbclid · tag paid vs organic</span></div>
+        <div class="lane l4"><span class="bar"></span><span class="ab">R</span><span class="tx">Retarget ad-clickers who didn't opt in (landing-page-view, no lead)</span></div>
+      </div>
+      <div class="vline"></div><div class="chev"></div>
+    </div>
+
+    <!-- 02 -->
+    <div class="fstep">
+      <div class="top"><span class="stepno">STEP 02 · FRONT END</span></div>
+      <h3>Opt-in</h3>
+      <div class="desc">webinar registration page · name / email / phone</div>
+      <div class="fvol"><div class="track"><div class="fill" style="width:100%"></div></div>
+        <div class="lbl"><span>registrants</span><b>644</b></div></div>
+    </div>
+    <div class="connector">
+      <div class="vline"></div><div class="chev"></div>
+      <div class="wfcard"><div class="wt">workflow in this gap</div>
+        <div class="lane l1"><span class="bar"></span><span class="ab">T</span><span class="tx">Tag <b>webinar_registered</b> · CompleteRegistration event · write to Supabase</span></div>
+        <div class="lane l2"><span class="bar"></span><span class="ab">S</span><span class="tx">New registrant drops into the setter pipeline view</span></div>
+        <div class="lane l3"><span class="bar"></span><span class="ab">M</span><span class="tx">Email 1 (identity) +0m · Email 2 (bonus + logistics) +15m · welcome SMS</span></div>
+        <div class="lane l4"><span class="bar"></span><span class="ab">R</span><span class="tx">Build / feed the registrant lookalike audience</span></div>
+      </div>
+      <div class="vline"></div><div class="chev"></div>
+    </div>
+
+    <!-- 03 -->
+    <div class="fstep">
+      <div class="top"><span class="stepno">STEP 03 · FRONT END</span></div>
+      <h3>Confirmation page (TY VSL)</h3>
+      <div class="desc">thank-you page with a VSL → scroll to free bonuses → Typeform (4-question DQ)</div>
+      <div class="fvol"><div class="track"><div class="fill" style="width:94%"></div></div>
+        <div class="lbl"><span>reach the page · Typeform = the qualify gate</span><b>~644</b></div></div>
+    </div>
+    <div class="connector">
+      <div class="vline"></div><div class="chev"></div>
+      <div class="wfcard"><div class="wt">workflow in this gap · the DQ fork</div>
+        <div class="lane l1"><span class="bar"></span><span class="ab">T</span><span class="tx">DQ answer tags <b>qualified</b> vs <b>unqualified</b> · route to the matching page · Lead pixel fires on qualified only</span></div>
+        <div class="lane l2"><span class="bar"></span><span class="ab">S</span><span class="tx">Qualified applicants surface to the setter as priority outreach</span></div>
+        <div class="lane l3"><span class="bar"></span><span class="ab">M</span><span class="tx">Bonus / workbook delivery email</span></div>
+      </div>
+      <div class="vline"></div><div class="chev"></div>
+    </div>
+
+    <!-- 04 -->
+    <div class="fstep">
+      <div class="top"><span class="stepno">STEP 04 · FRONT END</span></div>
+      <h3>Bonus page</h3>
+      <div class="desc">same page, two URLs — the only difference is the pixel</div>
+      <div class="fork">
+        <div class="forkpill q">QUALIFIED → <span class="u">/bonus</span><br><span class="pxon">META LEAD PIXEL FIRES ✓</span></div>
+        <div class="forkpill nq">UNQUALIFIED → <span class="u">/bonusv1</span><br><span class="pxoff">no pixel · still gets the bonus</span></div>
+      </div>
+    </div>
+    <div class="connector">
+      <div class="vline"></div><div class="chev"></div>
+      <div class="wfcard"><div class="wt">workflow in this gap · 6-day nurture</div>
+        <div class="lane l1"><span class="bar"></span><span class="ab">T</span><span class="tx">Set <b>days_until_webinar</b> · Zoom→GHL applies <b>attended</b> at show time</span></div>
+        <div class="lane l2"><span class="bar"></span><span class="ab">S</span><span class="tx">Setter DMs / calls high-intent qualified regs to confirm they'll attend</span></div>
+        <div class="lane l3"><span class="bar"></span><span class="ab">M</span><span class="tx">Emails 3–12 (proof, case study, objection, day-of, countdown, live urgency) · SMS reminders 24h / day-of / 1h / live</span></div>
+        <div class="lane l4"><span class="bar"></span><span class="ab">R</span><span class="tx">"See you Wednesday" reminder ads to registrants</span></div>
+      </div>
+      <div class="vline"></div><div class="chev"></div>
+    </div>
+
+    <!-- 05 -->
+    <div class="fstep web">
+      <div class="top"><span class="stepno">STEP 05 · LIVE EVENT</span></div>
+      <h3>Live webinar</h3>
+      <div class="desc">Zoom masterclass · Gloria · ~2.5 hr · content → proof → pitch</div>
+      <div class="fvol"><div class="track"><div class="fill pink" style="width:19%"></div></div>
+        <div class="lbl"><span>attendees · 11% paid show · 25% organic</span><b>121</b></div></div>
+    </div>
+    <div class="connector">
+      <div class="vline"></div><div class="chev"></div>
+      <div class="wfcard"><div class="wt">workflow in this gap</div>
+        <div class="lane l1"><span class="bar"></span><span class="ab">T</span><span class="tx">Tag <b>attended</b> · pipeline → call booked · AppointmentBooked event · Email 13 suppresses if attended</span></div>
+        <div class="lane l2"><span class="bar"></span><span class="ab">S</span><span class="tx">Setter works attendees who didn't book + no-shows; manually books qualified</span></div>
+        <div class="lane l3"><span class="bar"></span><span class="ab">M</span><span class="tx">Replay + book-your-call email/SMS · mid-webinar FOMO (Email 13) to no-joins</span></div>
+        <div class="lane l4"><span class="bar"></span><span class="ab">R</span><span class="tx">Retarget attendees who didn't book → book-a-call ads</span></div>
+      </div>
+      <div class="vline"></div><div class="chev"></div>
+    </div>
+
+    <!-- 06 -->
+    <div class="fstep be">
+      <div class="top"><span class="stepno">STEP 06 · BACK END</span></div>
+      <h3>App / Booking</h3>
+      <div class="desc">applies + books a call from the pitch</div>
+      <div class="fvol"><div class="track"><div class="fill green" style="width:11%"></div></div>
+        <div class="lbl"><span>booked calls · 58% of attendees</span><b>70</b></div></div>
+    </div>
+    <div class="connector">
+      <div class="vline"></div><div class="chev"></div>
+      <div class="wfcard"><div class="wt">workflow in this gap</div>
+        <div class="lane l1"><span class="bar"></span><span class="ab">T</span><span class="tx">Pipeline booked → showed / no-show · geo + DQ auto-cancel on bad bookings</span></div>
+        <div class="lane l2"><span class="bar"></span><span class="ab">S</span><span class="tx">Setter confirms, reminds, triage-calls, reschedules no-shows</span></div>
+        <div class="lane l3"><span class="bar"></span><span class="ab">M</span><span class="tx">Appointment reminders email + SMS (24h / 1h / 15m) · no-show recovery</span></div>
+        <div class="lane l4"><span class="bar"></span><span class="ab">R</span><span class="tx">Retarget no-shows to re-book</span></div>
+      </div>
+      <div class="vline"></div><div class="chev"></div>
+    </div>
+
+    <!-- 07 -->
+    <div class="fstep be">
+      <div class="top"><span class="stepno">STEP 07 · BACK END</span></div>
+      <h3>Show</h3>
+      <div class="desc">shows to the call · triage (setter) then closer</div>
+      <div class="fvol"><div class="track"><div class="fill green" style="width:8%"></div></div>
+        <div class="lbl"><span>showed to call (subset of booked)</span><b>~ exact pending tracking</b></div></div>
+    </div>
+    <div class="connector">
+      <div class="vline"></div><div class="chev"></div>
+      <div class="wfcard"><div class="wt">workflow in this gap</div>
+        <div class="lane l1"><span class="bar"></span><span class="ab">T</span><span class="tx">Pipeline qualified → closed-won / lost · closer (owner) tagged on the deal</span></div>
+        <div class="lane l2"><span class="bar"></span><span class="ab">S</span><span class="tx">Closer call + objection handling · follow-up motion for "let me think"</span></div>
+        <div class="lane l3"><span class="bar"></span><span class="ab">M</span><span class="tx">Follow-up sequence for un-closed · callback scheduling links</span></div>
+        <div class="lane l4"><span class="bar"></span><span class="ab">R</span><span class="tx">Proof / testimonial retargeting to un-closed calls</span></div>
+      </div>
+      <div class="vline"></div><div class="chev"></div>
+    </div>
+
+    <!-- 08 -->
+    <div class="fstep be">
+      <div class="top"><span class="stepno">STEP 08 · BACK END</span></div>
+      <h3>Close</h3>
+      <div class="desc">verbal yes on the offer · $5,800 PIF or payment plan</div>
+      <div class="fvol"><div class="track"><div class="fill green" style="width:2%"></div></div>
+        <div class="lbl"><span>closed</span><b>6</b></div></div>
+    </div>
+    <div class="connector">
+      <div class="vline"></div><div class="chev"></div>
+      <div class="wfcard"><div class="wt">workflow in this gap</div>
+        <div class="lane l1"><span class="bar"></span><span class="ab">T</span><span class="tx">Tag <b>closed_won</b> + payment tag · Purchase event · net-new vs repeat flag (Fanbasis / Whop)</span></div>
+        <div class="lane l2"><span class="bar"></span><span class="ab">S</span><span class="tx">Closer sends contract + payment link · hands off to CSM</span></div>
+        <div class="lane l3"><span class="bar"></span><span class="ab">M</span><span class="tx">Contract + payment link via SMS + email · payment confirmation + onboarding kickoff</span></div>
+        <div class="lane l4"><span class="bar"></span><span class="ab">R</span><span class="tx">Suppress buyer from all acquisition / cold audiences</span></div>
+      </div>
+      <div class="vline"></div><div class="chev"></div>
+    </div>
+
+    <!-- 09 -->
+    <div class="fstep be">
+      <div class="top"><span class="stepno">STEP 09 · BACK END</span></div>
+      <h3>Sign contract</h3>
+      <div class="desc">agreement signed + paid → Skool invite → CSM onboarding</div>
+      <div class="fvol"><div class="track"><div class="fill green" style="width:2%"></div></div>
+        <div class="lbl"><span>signed + paid</span><b>6 · $16,229</b></div></div>
+    </div>
+
   </div>
-  <div class="panel" style="padding:0;overflow:auto">
-    <table class="mtx">
-      <thead><tr>
-        <th>Gap</th>
-        <th class="lane1">Tags / segmentation / tracking</th>
-        <th class="lane2">Setter motions</th>
-        <th class="lane3">Automated SMS / email</th>
-        <th class="lane4">Retargeting ads</th>
-      </tr></thead>
-      <tbody>
-        <tr>
-          <td class="trans">01 → 02<small>ad → opt-in</small></td>
-          <td><ul><li>Pixel PageView + ViewContent</li><li>JS snippet grabs UTM + fbclid + referrer</li><li>Tag source: paid vs organic</li></ul></td>
-          <td class="dash">—</td>
-          <td class="dash">—</td>
-          <td><ul><li>Retarget ad-clickers who didn't opt in (LPV, no lead)</li></ul></td>
-        </tr>
-        <tr>
-          <td class="trans">02 → 03<small>opt-in → TY VSL</small></td>
-          <td><ul><li>Tag <code>webinar_registered</code> + <code>sequence_active</code></li><li>CompleteRegistration CAPI event</li><li>Write contact + source to Supabase</li></ul></td>
-          <td><ul><li>New registrant drops into setter pipeline view</li></ul></td>
-          <td><ul><li>Email 1 Identity Activation (+0m)</li><li>Email 2 Bonus + logistics (+15m)</li><li>Welcome SMS</li></ul></td>
-          <td><ul><li>Build/expand registrant lookalike audience</li></ul></td>
-        </tr>
-        <tr>
-          <td class="trans">03 → 04<small>Typeform → bonus (DQ fork)</small></td>
-          <td><ul><li>DQ answer tags <code>qualified</code> vs <code>unqualified</code></li><li>Route: /bonus (pixel) vs /bonusv1 (no pixel)</li><li>Lead event fires on qualified only</li></ul></td>
-          <td><ul><li>Qualified apps surface to setter as priority outreach</li></ul></td>
-          <td><ul><li>Bonus / workbook delivery email</li></ul></td>
-          <td class="dash">—</td>
-        </tr>
-        <tr>
-          <td class="trans">04 → 05<small>bonus → live webinar (6-day nurture)</small></td>
-          <td><ul><li><code>days_until_webinar</code> field set</li><li>Zoom→GHL applies <code>attended</code> at show</li></ul></td>
-          <td><ul><li>Setter DMs/calls high-intent qualified regs to confirm they'll attend</li></ul></td>
-          <td><ul><li>Emails 3–12: proof, case study, objection-killer, day-of, countdown, live urgency</li><li>SMS reminders (24h / day-of / 1h / live)</li></ul></td>
-          <td><ul><li>"See you Wednesday" reminder ads to registrants</li></ul></td>
-        </tr>
-        <tr>
-          <td class="trans">05 → 06<small>webinar → app/booking</small></td>
-          <td><ul><li>Tag <code>attended</code>; pipeline → call booked</li><li>AppointmentBooked CAPI event</li><li>Email 13 suppresses if attended</li></ul></td>
-          <td><ul><li>Setter works attendees who didn't book + no-shows; manual-books qualified</li></ul></td>
-          <td><ul><li>Replay + book-your-call email/SMS</li><li>Mid-webinar FOMO (Email 13) to no-joins</li></ul></td>
-          <td><ul><li>Retarget attendees who didn't book (book-a-call ads)</li></ul></td>
-        </tr>
-        <tr>
-          <td class="trans">06 → 07<small>booking → show</small></td>
-          <td><ul><li>Pipeline: booked → showed / no-show</li><li>Geo + DQ auto-cancel rules on bad bookings</li></ul></td>
-          <td><ul><li>Setter confirms, reminds, triage-calls, reschedules no-shows</li></ul></td>
-          <td><ul><li>Appointment reminders email + SMS (24h / 1h / 15m)</li><li>No-show recovery sequence</li></ul></td>
-          <td><ul><li>Retarget no-shows to re-book</li></ul></td>
-        </tr>
-        <tr>
-          <td class="trans">07 → 08<small>show → close</small></td>
-          <td><ul><li>Pipeline: qualified → closed-won / lost</li><li>Closer (owner) tagged on the deal</li></ul></td>
-          <td><ul><li>Closer call + objection handling; follow-up motion for "let me think"</li></ul></td>
-          <td><ul><li>Follow-up sequence for un-closed; callback scheduling links</li></ul></td>
-          <td><ul><li>Proof / testimonial retargeting to un-closed calls</li></ul></td>
-        </tr>
-        <tr>
-          <td class="trans">08 → 09<small>close → sign contract</small></td>
-          <td><ul><li>Tag <code>closed_won</code> + payment tag</li><li>Purchase CAPI event; net-new vs repeat flag (Fanbasis/Whop)</li></ul></td>
-          <td><ul><li>Closer sends contract + payment link; hands off to CSM</li></ul></td>
-          <td><ul><li>Contract + payment link via SMS + email</li><li>Payment confirmation + onboarding kickoff</li></ul></td>
-          <td><ul><li>Suppress buyer from all acquisition / cold audiences</li></ul></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="note">Today's open builds map straight onto this: the pixel fork lives in 03→04, the 13-email + SimpleTexting sequence is 04→05, the Zoom→GHL attended tag is 05→06, and the Supabase writes thread through every "tracking" cell.</div>
 
   <!-- ===== JOURNEY ===== -->
-  <h2 id="journey">3 · What they actually see <span class="badge">their screen, their head, every step</span></h2>
+  <h2 id="journey">What they actually see <span class="badge">their screen, their head, every step</span></h2>
   <div class="panel" style="padding:0;overflow:hidden">
     <div class="journey">
       <div class="jhead">Step</div><div class="jhead">What's on their screen</div><div class="jhead">The job it does</div>
-
-      <div class="jc jstep">Sees the ad <small>01 · feed</small></div>
-      <div class="jc jsee">A woman like them on camera — "brands paid me $X from my phone, no following." Native UGC reel, or an organic post.</div>
+      <div class="jc jstep">Sees the ad <small>01</small></div>
+      <div class="jc jsee">A woman like them on camera — "brands paid me $X from my phone, no following." Native UGC reel or organic post.</div>
       <div class="jc jjob">Pattern interrupt: "normal women get paid for this?"</div>
-
-      <div class="jc jstep">Opt-in <small>02 · reg page</small></div>
+      <div class="jc jstep">Opt-in <small>02</small></div>
       <div class="jc jsee">Short headline, free-masterclass promise, name/email/phone form.</div>
-      <div class="jc jjob">Low-friction yes. Email for a shot at the dream.</div>
-
+      <div class="jc jjob">Low-friction yes.</div>
       <div class="jc jstep">Confirmation <small>03 · TY VSL</small></div>
-      <div class="jc jsee">Thank-you page with a VSL playing. They scroll down to a "free bonuses" section — that's where the Typeform application sits (the 4-question DQ).</div>
-      <div class="jc jjob">Pre-frame with the VSL + capture a micro-commitment and self-segment via the form.</div>
-
-      <div class="jc jstep">Bonus page <small>04 · /bonus or /bonusv1</small></div>
-      <div class="jc jsee">After submitting, the bonus page: "your bonus is inside" headline, workbook download, add-to-calendar front and center. Identical whether qualified or not — only difference is invisible (the pixel).</div>
+      <div class="jc jsee">Thank-you page with a VSL playing. They scroll to a "free bonuses" section — that's where the Typeform (4-Q DQ) sits.</div>
+      <div class="jc jjob">Pre-frame with the VSL, capture a micro-commit, self-segment.</div>
+      <div class="jc jstep">Bonus page <small>04</small></div>
+      <div class="jc jsee">"Your bonus is inside" headline, workbook download, add-to-calendar front and center. Identical whether qualified or not.</div>
       <div class="jc jjob">Reward the action, lock the calendar, raise show-up intent.</div>
-
-      <div class="jc jstep">Inbox + texts <small>04→05 · 6-day nurture</small></div>
-      <div class="jc jsee">13 emails from Gloria & Sophia + SMS reminders. The arc:</div>
-      <div class="jc jjob">Move them from "I registered" to "I'm showing up live, ready."</div>
+      <div class="jc jstep">Inbox + texts <small>04→05</small></div>
+      <div class="jc jsee">13 emails (Gloria & Sophia) + SMS reminders:</div>
+      <div class="jc jjob">"I registered" → "I'm showing up live, ready."</div>
       <div class="jc" style="grid-column:2 / 4;border-bottom:1px solid var(--line)">
         <div class="emailcol">
-          <div class="e"><b>1 Identity Activation</b> <span>— you joined the 1%</span></div>
-          <div class="e"><b>2 Bonus + Logistics</b> <span>— workbook, calendar, reply</span></div>
-          <div class="e"><b>3 Social Proof</b> <span>— Sasha, $8K/mo, traveling</span></div>
-          <div class="e"><b>4 Content Preview</b> <span>— "I'M IN" micro-commit</span></div>
-          <div class="e"><b>5 Case Study</b> <span>— Missy, $11K month</span></div>
-          <div class="e"><b>6 Scarcity</b> <span>— capacity, replay-only fallback</span></div>
-          <div class="e"><b>7 Objection Killer</b> <span>— "scam?" $2.3M receipts</span></div>
-          <div class="e"><b>8 Bonus Stack</b> <span>(Sophia) — live-only unlocks</span></div>
-          <div class="e"><b>9 Day-of Pre-Sell</b> <span>— Walmart → $10K</span></div>
-          <div class="e"><b>10 Doubt Killer</b> <span>— your brain is lying</span></div>
-          <div class="e"><b>11 1hr Countdown</b> <span>— close tabs, set up</span></div>
+          <div class="e"><b>1 Identity Activation</b> <span>— top 1%</span></div>
+          <div class="e"><b>2 Bonus + Logistics</b> <span>— workbook, calendar</span></div>
+          <div class="e"><b>3 Social Proof</b> <span>— Sasha $8K/mo</span></div>
+          <div class="e"><b>4 Content Preview</b> <span>— "I'M IN"</span></div>
+          <div class="e"><b>5 Case Study</b> <span>— Missy $11K</span></div>
+          <div class="e"><b>6 Scarcity</b> <span>— capacity / replay</span></div>
+          <div class="e"><b>7 Objection Killer</b> <span>— $2.3M receipts</span></div>
+          <div class="e"><b>8 Bonus Stack</b> <span>(Sophia)</span></div>
+          <div class="e"><b>9 Day-of Pre-Sell</b> <span>— Walmart→$10K</span></div>
+          <div class="e"><b>10 Doubt Killer</b> <span>— brain is lying</span></div>
+          <div class="e"><b>11 1hr Countdown</b> <span>— set up</span></div>
           <div class="e"><b>12 Live Urgency</b> <span>— "you coming??"</span></div>
-          <div class="e"><b>13 Mid-Webinar FOMO</b> <span>(Sophia) — late deciders</span></div>
+          <div class="e"><b>13 Mid-Webinar FOMO</b> <span>(Sophia)</span></div>
         </div>
       </div>
-
-      <div class="jc jstep">Live webinar <small>05 · Zoom</small></div>
-      <div class="jc jsee">Gloria presents: the skill, proof (brand names, dollar amounts), her Walmart→freedom arc, real deal flow. Chat + Q&A.</div>
-      <div class="jc jjob">Belief transfer: "this is real, it works, it could be me."</div>
-
-      <div class="jc jstep">The pitch → apply <small>06 · end of webinar</small></div>
-      <div class="jc jsee">Offer reveal + CTA to apply / book a call for the Academy. Live-only access framing, calendar widget.</div>
+      <div class="jc jstep">Live webinar <small>05</small></div>
+      <div class="jc jsee">Gloria presents: the skill, proof (brands, dollar amounts), Walmart→freedom arc, real deal flow. Chat + Q&A.</div>
+      <div class="jc jjob">Belief transfer: "this is real, and it could be me."</div>
+      <div class="jc jstep">Pitch → apply <small>06</small></div>
+      <div class="jc jsee">Offer reveal + CTA to apply / book a call. Live-only framing, calendar widget.</div>
       <div class="jc jjob">Convert belief into a booked call.</div>
-
-      <div class="jc jstep">Books a call <small>06 · calendar</small></div>
-      <div class="jc jsee">Calendar picker → time → confirmation. Geo/DQ rules can auto-cancel bad bookings.</div>
-      <div class="jc jjob">Cross from audience into pipeline.</div>
-
-      <div class="jc jstep">Triage / setter <small>07 · Zoom · Rafay/Shib</small></div>
-      <div class="jc jsee">Quick setter call: goals, situation, ability to invest. Confirms fit or DQs.</div>
-      <div class="jc jjob">Qualify hard, set the frame, hand a warm prospect to the closer.</div>
-
-      <div class="jc jstep">Closer call <small>07→08 · Ferran/Sophia</small></div>
-      <div class="jc jsee">1:1 sales conversation: their story and pain, the vision, the Academy walkthrough, then price ($5,800 PIF or plan).</div>
-      <div class="jc jjob">Build trust, surface motivation, present the path, ask for the sale.</div>
-
-      <div class="jc jstep">Objection handling <small>08 · on the call</small></div>
-      <div class="jc jsee">Closer works the real blocks: money, fear ("am I the type who can do this"), time, partner sign-off, "is this a scam."</div>
+      <div class="jc jstep">Triage → closer <small>07</small></div>
+      <div class="jc jsee">Setter qualifies (goals, situation, ability to invest), then a 1:1 closer call: their story, the Academy walkthrough, price.</div>
+      <div class="jc jjob">Qualify hard, build trust, ask for the sale.</div>
+      <div class="jc jstep">Objections <small>08</small></div>
+      <div class="jc jsee">Closer works money, fear, time, partner sign-off, "is this a scam."</div>
       <div class="jc jjob">Remove the last barriers between belief and yes.</div>
-
-      <div class="jc jstep">Sign contract <small>09 · agreement + pay</small></div>
-      <div class="jc jsee">Agreement + terms, then Whop/Fanbasis checkout link on the call: PIF $5,800 or payment plan → payment-succeeded confirmation → Skool invite.</div>
-      <div class="jc jjob">Collect cash, document the commitment, capitalize on momentum.</div>
-
-      <div class="jc jstep">Onboarding <small>post · CSM Sydney</small></div>
-      <div class="jc jsee">CSM reaches out, books onboarding, kicks off the 5-day sprint, sets first pitching goal.</div>
-      <div class="jc jjob">Turn a buyer into an active student → future testimonial for the flywheel.</div>
+      <div class="jc jstep">Sign contract <small>09</small></div>
+      <div class="jc jsee">Agreement + terms, Whop/Fanbasis checkout on the call (PIF $5,800 or plan) → payment-succeeded → Skool invite → CSM onboarding.</div>
+      <div class="jc jjob">Collect cash, document commitment, start the student.</div>
     </div>
   </div>
 
   <!-- ===== LADDER ===== -->
-  <h2 id="ladder">4 · The ladder <span class="badge">awareness → belief → offer ascension</span></h2>
-  <p class="secsub">Read bottom-up. Each rung = where their head is, the belief that has to land, and the touchpoint that installs it.</p>
+  <h2 id="ladder">The ladder <span class="badge">awareness → belief → offer ascension</span></h2>
+  <p class="secsub">Read bottom-up. Each rung: where their head is, the belief that has to land, the touchpoint that installs it.</p>
   <div class="panel">
     <div class="ladder">
-      <div class="rung r0"><div class="aw">Unaware</div><div class="believe">"This is just my life. Clock in, clock out, scroll, repeat."</div><div class="touch">Cold ad scroll-stop — a normal woman paid from her phone.</div></div>
-      <div class="rung r1"><div class="aw">Problem aware</div><div class="believe">"I hate this and there has to be more — but I have no skill, following, or time."</div><div class="touch">Ad hook + opt-in promise: possible without those things.</div></div>
-      <div class="rung r2"><div class="aw">Solution aware</div><div class="believe">"UGC is a real skill brands pay $300–$1,000/video for. No following needed."</div><div class="touch">VSL, content-preview email, Sasha/Missy proof, the masterclass.</div></div>
-      <div class="rung r3"><div class="aw">Product aware</div><div class="believe">"Not a scam. UGC World can teach me — receipts: $2.3M, Adobe, Perplexity."</div><div class="touch">Objection-killer email, live deal-flow reveal, Q&A by name.</div></div>
-      <div class="rung r4"><div class="aw">Most aware</div><div class="believe">"I need to book the call and join the Academy before the cohort fills."</div><div class="touch">Webinar pitch + live-only scarcity → booked call → closer → sign.</div></div>
+      <div class="rung r0"><div class="aw">Unaware</div><div class="believe">"This is just my life. Clock in, scroll, repeat."</div><div class="touch">Cold ad scroll-stop — a normal woman paid from her phone.</div></div>
+      <div class="rung r1"><div class="aw">Problem aware</div><div class="believe">"I hate this, there has to be more — but I have no skill, following, or time."</div><div class="touch">Ad hook + opt-in promise: possible without those things.</div></div>
+      <div class="rung r2"><div class="aw">Solution aware</div><div class="believe">"UGC is a real skill brands pay $300–$1,000/video for."</div><div class="touch">VSL, content-preview email, Sasha/Missy proof, the masterclass.</div></div>
+      <div class="rung r3"><div class="aw">Product aware</div><div class="believe">"Not a scam. UGC World can teach me — $2.3M, Adobe, Perplexity."</div><div class="touch">Objection-killer email, live deal-flow reveal, Q&A by name.</div></div>
+      <div class="rung r4"><div class="aw">Most aware</div><div class="believe">"I need to book the call and join before the cohort fills."</div><div class="touch">Webinar pitch + live-only scarcity → booked call → closer → sign.</div></div>
     </div>
     <div class="split-wrap">
       <div class="split-card q"><h4>Offer ascension</h4>
         <ul>
-          <li><b>Free Masterclass</b> — cost to them: an evening + an email.</li>
-          <li><b>UGC Academy</b> — $5,800 PIF or payment plan. Structure, 5-day sprint, Skool, support.</li>
-          <li><b>Back end</b> — 1:1 mentorship + agency placement (Perplexity-type brand sourcing).</li>
+          <li><b>Free Masterclass</b> — an evening + an email.</li>
+          <li><b>UGC Academy</b> — $5,800 PIF or plan. Structure, 5-day sprint, Skool, support.</li>
+          <li><b>Back end</b> — 1:1 mentorship + agency placement.</li>
         </ul>
       </div>
-      <div class="split-card nq"><h4>The 5 trust beliefs the webinar must install</h4>
+      <div class="split-card nq"><h4>The 5 trust beliefs the webinar installs</h4>
         <ul>
           <li>The skill is real and in-demand.</li>
-          <li>No following, experience, or degree required.</li>
+          <li>No following, experience, or degree needed.</li>
           <li>Women exactly like you did it from zero.</li>
           <li>It's not a scam — here are the receipts.</li>
           <li>You just have to show up and follow the path.</li>
@@ -291,9 +356,7 @@
     </div>
   </div>
 
-  <div class="foot">
-    Corrected spine + the four-lane automation layer between every step. One map, supersedes the scattered funnel-map / click-to-close / marketing-ops / may20 fragments. Numbers from the May 20 manual report (~80-90% until Supabase makes them exact).
-  </div>
+  <div class="foot">Funnel diagram with the workflow firing in every gap. Supersedes the scattered funnel-map / click-to-close / marketing-ops / may20 fragments. Numbers from the May 20 manual report (~80-90% until Supabase makes them exact).</div>
 </div>
 </body>
 </html>
